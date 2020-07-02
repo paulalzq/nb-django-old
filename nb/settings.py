@@ -25,7 +25,7 @@ SECRET_KEY = 'e3to8qs&d=a)ujz#!s2!$n)nooj=omw@@$kc@r7j-m2+_^$s(z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://nbpage.herokuapp.com/']
+ALLOWED_HOSTS = ['nbpage.herokuapp.com']
 
 
 # Application definition
