@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -127,19 +126,21 @@ EMAIL_USE_TLS = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-SECURE_HSTS_SECONDS = True
+HOST_SCHEME = "http://"
 
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+#SECURE_HSTS_SECONDS = True
 
-SECURE_HSTS_PRELOAD = True
+#SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
-SECURE_REFERRER_POLICY = 'strict-origin'
+#SECURE_HSTS_PRELOAD = True
 
-SECURE_SSL_REDIRECT = True
+#SECURE_REFERRER_POLICY = 'strict-origin'
 
-SESSION_COOKIE_SECURE = True
+#SECURE_SSL_REDIRECT = True
 
-CSRF_COOKIE_SECURE = True
+#SESSION_COOKIE_SECURE = True
+
+#CSRF_COOKIE_SECURE = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
@@ -159,3 +160,7 @@ import dj_database_url
 prod_db  =  dj_database_url.config(conn_max_age=500)
 
 DATABASES['default'].update(prod_db)
+
+import socket
+if socket.gethostname()=="*":
+    from local_settings import *
