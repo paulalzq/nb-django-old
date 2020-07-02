@@ -128,19 +128,19 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 HOST_SCHEME = "http://"
 
-#SECURE_HSTS_SECONDS = True
+SECURE_HSTS_SECONDS = True
 
-#SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
-#SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_PRELOAD = True
 
-#SECURE_REFERRER_POLICY = 'strict-origin'
+SECURE_REFERRER_POLICY = 'strict-origin'
 
-#SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = True
 
-#SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 
-#CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
