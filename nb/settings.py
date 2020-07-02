@@ -25,7 +25,7 @@ SECRET_KEY = 'e3to8qs&d=a)ujz#!s2!$n)nooj=omw@@$kc@r7j-m2+_^$s(z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['nbpage.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -143,13 +143,10 @@ CSRF_COOKIE_SECURE = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
-)
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
