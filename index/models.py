@@ -1,5 +1,4 @@
 from django.db import models
-from django import forms
 
 # Create your models here.
 class Servicio(models.Model):
@@ -7,7 +6,7 @@ class Servicio(models.Model):
     link = models.CharField(max_length=50, default='link_servicio')
     text = models.TextField()
     image = models.ImageField(upload_to='servicio', default='none')
-    number = models.BigAutoField(primary_key=True)
+    numberservice = models.BigAutoField(primary_key=True)
 
 
 
