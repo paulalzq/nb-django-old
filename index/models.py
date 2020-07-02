@@ -1,12 +1,15 @@
 from django.db import models
+from django import forms
 
 # Create your models here.
 class Servicio(models.Model):
     title = models.CharField(max_length=200, default='servicio')
     link = models.CharField(max_length=50, default='link_servicio')
-    number = models.CharFiel(max_lenght=50, default='n+1')
     text = models.TextField()
     image = models.ImageField(upload_to='servicio', default='none')
+    number = models.BigAutoField(primary_key=True)
+
+
 
 
     def __str__(self):

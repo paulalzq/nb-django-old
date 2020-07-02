@@ -53,9 +53,9 @@
       <div class="col-md-12 h-100">
         <div id="muestradeservicios" class="carousel slide h-100" data-ride="carousel">
           <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#muestradeservicios" data-slide-to="0" class="active"></li>
             {% for service in services %}
-            <li data-target="#carouselExampleIndicators" data-slide-to="{{}}"></li>
+            <li data-target="#muestradeservicios" data-slide-to="{{ service.number }}"></li>
             {% endfor %}
           </ol>
           <div class="carousel-inner">
@@ -74,7 +74,7 @@
             <div class="carousel-item servicio row">
               <div class="col-md-12 d-flex flex-row align-items-center">
                 <div class="col-md-6 d-flex flex-column justify-content-center px-4 mx-4" id="section">
-                  <h1>{{ service.title }}</h1>
+                  <h1>{{ service.title }}, {{service.number}}</h1>
                     <p>{{ service.text|linebreaksbr }}</p>
                 </div>
                 <div class="col-md-6 d-flex align-items-center" id="section">
