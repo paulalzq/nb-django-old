@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /
+RewriteRule ^(media/.*)$ - [L]
+RewriteRule ^(admin_media/.*)$ - [L]
+RewriteRule ^(nb/dispatch\.wsgi/.*)$ - [L]
+RewriteRule ^(.*)$ nb/nb/dispatch.wsgi/$1 [QSA,PT,L]

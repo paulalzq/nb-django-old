@@ -1,0 +1,57 @@
+body{
+	font-family: 'Fira Sans', sans-serif;
+	overflow-x: hidden;
+	background: #343A40;
+}
+html{
+	scroll-behavior: smooth;
+}
+nav{
+	background: linear-gradient(90deg, rgba(52,58,64,1) 50%, rgba(52,58,64,0) 50%) !important;
+}
+.logo{
+	width: 150px;
+}
+header{
+	height: 100vh;
+}
+.logo-intro{
+	max-width: 60%;
+	min-width: 20vw;
+}
+section{
+	height: 100vh;
+}
+.servicio{
+	position: relative;
+	height: 100%;
+	width: 100vw;
+}
+.zup{
+	position: relative;
+	z-index: 1000;
+}
+.gradient{
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	left: 0;
+	margin-left: 0:
+	top: 0;
+	z-index: 10;
+	background: linear-gradient(90deg, rgba(52,58,64,1) 50%, rgba(52,58,64,0) 70%);
+}
+.img-servicio{
+	position: relative;
+	height: 100vh !important;
+	right: 0;
+	margin-left: 0:
+	top: 0;
+	z-index: 0;
+}
+.background {
+  position:  absolute;
+  display:  block;
+  top: 0;
+  left: 0;
+  z-index

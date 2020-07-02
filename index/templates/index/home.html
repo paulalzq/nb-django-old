@@ -1,0 +1,178 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+	  <link rel="stylesheet" href="{% static 'css/nb.css' %}">
+    <title>NB</title>
+  </head>
+  <body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top ">
+		<a class="navbar-brand" href="#">
+			<img src="{% static 'images/iso-negativo.svg' %}" class="logo">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#servicios">Services</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#portafolio">Portfolio</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#contacto">Contact</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<header id="home" class="container-fluid text-light">
+    <div class="gradient"></div>
+    <canvas class="background"></canvas>
+		<div class="row align-items-center h-100 zup">
+			<div class="col-md-6">
+				<div class="d-flex justify-content-start align-items-center ml-3">
+          <div class="flex-column">
+            <img src="{% static 'images/iso-negativo.svg' %}" alt="Logo de NoBinarix" class="logo-intro mb-3">
+            <p class="logo-intro h5">Somos un estudio de profesionales en Diseño e Ingeniería y venimos a salvar el mundo. Obvio esto hay que cambiarlo.</p>
+          </div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<section id="servicios" class="container-fluid bg-dark text-light servicios p-0">
+    <div class="row align-items-center" id="section">
+      <div class="col-md-12 h-100">
+        <div id="muestradeservicios" class="carousel slide h-100" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active h-100">
+              <div class="d-flex flex-row align-items-center">
+                  <div class="d-flex flex-column justify-content-around">
+                    <h1>Intro</h1>
+                    <p>description</p>
+                  </div>
+              </div>
+            </div>
+            {% for service in services %}
+            <div class="carousel-item servicio">
+              <div class="d-flex flex-row align-items-center justify-content-around">
+                  <div class="flex-column zup">
+                    <h1>{{ service.title }}</h1>
+                    <p>{{ service.text|linebreaksbr }}</p>
+                  </div>
+                  <div class="h-100">
+                    <div class="gradient"></div>
+                    <img src="{{ service.image.url }}" class="img-servicio" alt="{{ service.title }}">
+                  </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <a class="carousel-control-prev" href="#muestradeservicios" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#muestradeservicios" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="portafolio" class="container-fluid bg-dark text-light pt-5">
+    <div class="row pt-4 ml-2 mb-5">
+      <h1>Portafolio</h1>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-md">
+        <div class="flex-thumbs">
+        {% for solution in solutions %}
+        <a href="#{{ solution.link }}" data-toggle="modal" data-target="#{{ solution.link }}">
+          <div class="nb-card">
+            <img src="{{ solution.image.url }}" class="img-thumb" alt="{{ solution.title }}">
+            <h5 class="text-light">{{ solution.title }}</h5>
+          </div>
+        </a>
+        {% endfor %}
+        </div>
+      </div>
+      {% for solution in solutions %}
+      <div class="modal fade" id="{{ solution.link }}" tabindex="-1" role="dialog" aria-labelledby="{{ solution.title }}" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content bg-dark">
+            <div class="modal-body p-0 nb-modal">
+              <img src="{{ solution.image.url }}" class="card-img-top" alt="{{ solution.title }}">
+              <p class="p-2">{{ solution.description|linebreaksbr}}</p>
+            </div>
+            <div class="modal-footer border-0">
+              <h5 class="modal-title mr-auto" id="exampleModalLabel">{{ solution.title }}</h5>
+              <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+	</section>
+  <section id="contacto" class="container-fluid bg-dark text-light ">
+    <div class="row align-items-center" id="section">
+      <div class="col-md-1"></div>
+      <div class="col-md-5 border-right pr-5">
+        <h1>Contact</h1>
+		<form role="form" method="post">
+      {% csrf_token %}
+			<div class="form-group">
+				<label for="{{ form.contact_email.id_for_label }}">Email subject:</label>
+				{{ form.contact_email }}
+			</div>
+			<div class="form-group">
+				<label for="{{ form.contact_name.id_for_label }}">Your message:</label>
+				{{ form.contact_name }}
+			</div>
+			<div class="form-group">
+				<label for="{{ form.form_content.id_for_label }}">Your email address:</label>
+				{{ form.form_content }}
+      </div>
+      <input type="submit" value="Send message">
+      <button type="submit" value="Send message" class="btn btn-primary">Submit</button>
+		</form>
+      </div>
+      <div class="col-md-6 text-center">
+        <h1><!--Estoy vacío mientras tanto--></h1>
+        <h3>Chat with us</h3>
+        <p>
+          <a href="https://wa.me/573052543000" class="btn btn-success" target="_blank">
+            This is a whatsapp link
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="{% static 'js/nb.js' %}"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-170597479-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-170597479-1');
+	</script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+  </body>
+</html>
