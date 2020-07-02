@@ -6,7 +6,7 @@ class Servicio(models.Model):
     link = models.CharField(max_length=50, default='link_servicio')
     text = models.TextField()
     image = models.ImageField(upload_to='servicio', default='none')
-    numberservice = models.BigAutoField(primary_key=True)
+    number = models.BigAutoField(primary_key=True)
 
 
 
