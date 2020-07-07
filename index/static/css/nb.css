@@ -97,8 +97,11 @@ section{
 }
 
 @media (max-width: 1200px) {
-	.background{
+	.gradient{
 		display: none;
+	}
+	.background{
+		opacity: 0.6;
 	}
 	.resp-btn{
 		text-align: center;
