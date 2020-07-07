@@ -8,9 +8,6 @@ class Servicio(models.Model):
     image = models.ImageField(upload_to='servicio', default='none')
     number = models.BigAutoField(primary_key=True)
 
-
-
-
     def __str__(self):
         return self.title
 
