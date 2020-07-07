@@ -126,19 +126,7 @@ EMAIL_USE_TLS = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-HOST_SCHEME = "http://"
-
-SECURE_HSTS_SECONDS = True
-
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-
-SECURE_HSTS_PRELOAD = True
-
-SECURE_REFERRER_POLICY = 'strict-origin'
-
 SECURE_SSL_REDIRECT = False
-
-SESSION_COOKIE_SECURE = True
 
 CSRF_COOKIE_SECURE = True
 
