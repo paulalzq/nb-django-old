@@ -97,6 +97,9 @@ section{
 }
 
 @media (max-width: 1200px) {
+	.gradient{
+		display: none;
+	}
 	.background{
 		opacity: 0.3;
 	}
